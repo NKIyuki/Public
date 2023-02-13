@@ -22,6 +22,7 @@ Rails.application.routes.draw do
  namespace :admin do
   resources :sessions
   resources :genres
+  resources :items
  end
 
 
