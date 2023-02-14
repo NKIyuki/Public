@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   resources :sessions
   resources :genres
   resources :items
+  resources :customers
+  resources :homes
+  resources :orders
+  resources :orders_details
  end
 
 
