@@ -4,11 +4,4 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  def change
-  create_table :admins do |t|
-    t.string :email,null:false
-    t.string :encrypted_password,null:false
-    t.timestamps
-   end
-  end
 end

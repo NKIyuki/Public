@@ -1,14 +1,14 @@
 class Admin::CustomersController < ApplicationController
   def show
-    @customers = Custome.find(params[:id])
+    @customers = Customer.find(params[:id])
   end
 
   def index
-    @customers = Custome.all
+    @customers = Customer.all
   end
 
   def edit
-   @customers = Custome.find(params[:id])
+   @customers = Customer.find(params[:id])
 
   end
 
