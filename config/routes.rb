@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
  }
 
- get 'top' => 'homes#top'
+
  namespace :public do
   resources :homes
   resources :items
