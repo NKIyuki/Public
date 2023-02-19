@@ -2,7 +2,7 @@
   <h1>商品新規登録</h1>
   <%= form_with model:Item.new,url: admin_items_path  do |f| %>
   <h1>商品画像</h1>
-
+  <%= f.file_field :image,placeholder:"プロフィール画像",accept:"image/*" %>
   <h1>商品名</h1>
   <%= f.text_field :name %>
 
@@ -10,12 +10,20 @@
   <%= f.text_field :introduction %>
 
   <h1>ジャンル</h1>
-
+　<%= f.collection_select(:name,@genres,:id,:name,prompt: "選択してください") %>
 
   <h1>税抜価格</h1>
   <%= f.text_field :price %>
 
   <h1>販売ステータス</h1>
+  <%= f.label :is_active, "販売中" %>
+  <%= f.radio_button :is_active, :true %>
+  <%= f.label :is_active, "販売停止中" %>
+  <%= f.radio_button :is_active, :false %>
+
+  <%= f.submit '新規登録',class:"btn btn-success" %>
+
+  <% end %>
 
 
 
