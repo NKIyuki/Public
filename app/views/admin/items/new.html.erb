@@ -1,4 +1,4 @@
-<mein>
+
   <h1>商品新規登録</h1>
   <%= form_with model:Item.new,url: admin_items_path  do |f| %>
   <h1>商品画像</h1>
@@ -10,10 +10,10 @@
   <%= f.text_field :introduction %>
 
   <h1>ジャンル</h1>
-　<%= f.collection_select(:name,@genres,:id,:name,prompt: "選択してください") %>
+  <%= f.collection_select(:genre_id,@genres,:id,:name,prompt: "選択してください") %>
 
   <h1>税抜価格</h1>
-  <%= f.text_field :price %>
+  <%= f.text_field :price %>円
 
   <h1>販売ステータス</h1>
   <%= f.label :is_active, "販売中" %>
@@ -25,7 +25,3 @@
 
   <% end %>
 
-
-
-
-</mein>
