@@ -1,10 +1,21 @@
-<h1>会員一覧</h1>
+<<h1>会員一覧</h1>
+<% @customers.each do |customer| %>
 <h1>会員ID</h1>
-
-
+<%= customer.id %>
 <h1>氏名</h1>
-
+<%= link_to edit_admin_customer_path(customer.id) do %>
+<%= customer.first_name  %> <%= customer.last_name %>
+<% end %>
 <h1>メールアドレス</h1>
-
+<%= customer.email %>
 <h1>ステータス</h1>
+<% if item.is_deleted%>
+  <span> 有効 </span>
 
+  <% else %>
+  <span>退会</span>
+
+  <% end %>
+
+
+<% end %>
