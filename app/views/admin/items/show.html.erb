@@ -10,6 +10,12 @@
     <p><%= @item.price%></p>
 
   <h1>販売ステータス</h1>
-    <p><%= @item.is_active %></p>
+ <% if @item.is_active %>
+  <span> 販売中 </span>
+
+  <% else %>
+  <span>販売停止中</span>
+
+  <% end %>
 
     <%= link_to "編集する",edit_admin_item_path(@item.id) %>

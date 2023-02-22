@@ -9,13 +9,14 @@
 <h1>メールアドレス</h1>
 <%= customer.email %>
 <h1>ステータス</h1>
-<% if item.is_deleted%>
+ <% if customer.is_deleted %>
   <span> 有効 </span>
 
   <% else %>
-  <span>退会</span>
+  <span>無効</span>
 
   <% end %>
+
 
 
 <% end %>
