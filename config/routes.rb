@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
  }
 
+  get '/about' => 'public/homes#about'
+  get 'customers/confirm' => 'public/customers#confirm'
 
  namespace :public do
   resources :homes
