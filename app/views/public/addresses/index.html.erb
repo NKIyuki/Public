@@ -1,3 +1,4 @@
+
 <h1>配送先登録/一覧</h1>
 <%= form_with model:Address.new,url: public_addresses_path do |f| %>
 
@@ -22,10 +23,11 @@
 <%= address.address %>
 
 <h1></h1>
-<%= address.mame %>
+<%= address.name %>
 
-<%= link_to "編集", edit_admin_address_path %>
+<%= link_to "編集", edit_public_address_path(address.id) %>
 
 <% end %>
+
 
 

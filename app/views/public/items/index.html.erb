@@ -1,0 +1,23 @@
+  <h1>商品一覧</h1>
+  <% @items.each do |item| %>
+  <h1>商品ID</h1>
+  <span><%=item.id %></span>
+  <%= link_to public_item_path(item.id) do %>
+  <%= image_tag item.item_image(100,100) %>
+  <% end %>
+  <h1>商品名</h1>
+  <span><%= item.name %></span>
+  <h1>税抜価格</h1>
+  <span><%=item.price %></span>
+  <h1>ジャンル</h1>
+  <span><%= item.genre.name %></span>
+  <h1>ステータス</h1>
+  <% if item.is_active %>
+  <span> 販売中 </span>
+
+  <% else %>
+  <span>販売停止中</span>
+
+  <% end %>
+
+  <% end %>

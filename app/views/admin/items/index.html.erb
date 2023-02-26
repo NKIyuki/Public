@@ -1,9 +1,14 @@
-<mein>
+
   <h1>商品一覧</h1>
   <h1><%= link_to "＋", new_admin_item_path %></h1>
   <% @items.each do |item| %>
   <h1>商品ID</h1>
   <span><%=item.id %></span>
+
+  <p>
+  <%= image_tag item.item_image(100,100) %>
+  </p>
+
   <h1>商品名</h1>
   <span><%= item.name %></span>
   <h1>税抜価格</h1>
@@ -21,7 +26,3 @@
 
   <% end %>
 
-
-
-
-</mein>
