@@ -1,16 +1,35 @@
-<h1>ショッピングカート</h1>
+<h4>ショッピングカート</h4>
 
-<h1>商品名</h1>
-<span><%= @item.name %></span>
+     <% total = 0 %>
 
+ <% if current_customer.cart_items.present? %>
+    <% @cart_items.each do |cart_item| %>
+     <tr>
+       <td>
 
-<h1>単価（税込）</h1>
-<span><%=@item.price %></span>
+         <%= cart_item.item.name %>
+       </td>
+       <td><%= (cart_item.item.price*1.08).to_i %></td>
+       <td>
+         <%= form_with model: cart_item, url: public_cart_item_path(cart_item), local: true, method: :patch do |f| %>
+           <%= f.number_field :quantity, min: 1, max:10, id: "quantity_cart"%>
+           <%= f.submit "変更",class: "btn btn-success" %>
+         <% end %>
+       </td>
+       <td>
+         <% subtotal = ((cart_item.item.price*cart_item.amount)*1.08).to_i %>
+         <%= subtotal %>
+       </td>
+       <td>
+         <%= link_to "商品をカートから削除する", public_cart_item_path(cart_item.id, cart_item), method: :delete,class: "btn btn-danger" %>
+       </td>
+     </tr>
+       <% total += subtotal %>
+     <% end %>
+<% end %>
+   <tr>
+    <th>合計金額</th>
+    <td><%= total %></td>
+   </tr>
 
-
-<h1>数量</h1>
-
-
-
-<h1>小計</h1>
-
+  <%= link_to "カートを空にする", public_cart_items_path, method: :delete,class: "btn btn-danger btn-sm" %>

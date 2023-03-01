@@ -13,12 +13,26 @@ class Public::CartItemsController < ApplicationController
             cart_item.save
             redirect_to public_cart_items_path
         elsif @cart_item.save
-            　@cart_items = current_member.cart_items.all
+            　@cart_items = current_customer.cart_items.all
             　render 'index'
         else
             render 'index'
         end
+  end
+  
+  def destroy
+        cart_item = CartItem.find(params[:id])
+        cart_item.destroy
+        @cart_items = CartItem.all
+        　render 'index'
+  end
+
+    def all_destroy  
+        cart_items = CartItem.all
+        cart_items.destroy_all
+        　render 'index'
     end
+  
 
 private
     def cart_item_params
