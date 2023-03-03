@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/about' => 'public/homes#about'
   get 'customers/confirm' => 'public/customers#confirm'
+  get 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
 
  namespace :public do
   resources :homes
