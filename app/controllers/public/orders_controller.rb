@@ -1,34 +1,34 @@
 class Public::OrdersController < ApplicationController
 
   def new
-    @orders = Order.new
-    @addresses = current_customer.addresses.all
+    @order = Order.new
+    @address = current_customer.addresses.all
   end
 
   def confirm
     @order = Order.new(order_params)
-    if params[:order][:address_option] == "0"
-        @order.shipping_post_code = current_customer.post_code
-        @order.shipping_address = current_customer.address
-        @order.shipping_name = current_customer.last_name + current_member.first_name
+    if params[:order][:select_address] == "0"
+        @order.postal_code = current_customer.postal_code
+        @order.address = current_customer.address
+        @order.name = current_customer.last_name + current_customer.first_name
 
-    elsif params[:order][:address_option] == "1"
+    elsif params[:order][:select_address] == "1"
         ship = Address.find(params[:order][:customer_id])
-        @order.shipping_post_code = ship.post_code
-        @order.shipping_address = ship.address
-        @order.shipping_name = ship.name
+        @order.postal_code = postal_code
+        @order.address = address
+        @order.name = name
 
-    elsif params[:order][:address_option] = "2"
-        @order.shipping_post_code = params[:order][:shipping_post_code]
-        @order.shipping_address = params[:order][:shipping_address]
-        @order.shipping_name = params[:order][:shipping_name]
-        else
+    elsif params[:order][:select_address] = "2"
+        @order.postal_code = params[:order][:postal_code]
+        @order.address = params[:order][:address]
+        @order.name = params[:order][:name]
+    else
             redirect_to new_public_order_path
-        end
+    end
 
      @cart_items = current_customer.cart_items.all
-     @order.member_id = current_customer.id
-   end
+     @order.customer_id = current_customer.id
+  end
 
    def create
      @order = Order.new(order_params)
@@ -49,6 +49,7 @@ class Public::OrdersController < ApplicationController
    end
 
    def conpletion
+     @order = Order.all
 
    end
 
@@ -64,7 +65,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    parms.require(:order).permit(:postage, :payment_method, :shipping_name, :shipping_address,:shipping_post_code ,:customer_id,:total_payment,:status)
+    params.require(:order).permit(:shipping_cost, :payment_method, :name, :address,:postal_code ,:customer_id,:total_amount,:order_status,:total_payment,:payment_method)
 
   end
 

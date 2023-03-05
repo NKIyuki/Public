@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/about' => 'public/homes#about'
   get 'customers/confirm' => 'public/customers#confirm'
   delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+  post 'orders/confirm' => 'public/orders#confirm'
   get 'orders/conpletion' => 'public/orders#conpletion'
 
  namespace :public do
