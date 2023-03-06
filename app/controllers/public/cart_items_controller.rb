@@ -2,7 +2,7 @@ class Public::CartItemsController < ApplicationController
 
 
   def index
-    @cart_items = current_customer.cart_items.all
+    @cart_item = current_customer.cart_items.all
   end
 
   def create
@@ -12,7 +12,7 @@ class Public::CartItemsController < ApplicationController
             cart_item.amount += params[:cart_item][:amount].to_i
             cart_item.save
             redirect_to public_cart_items_path
-        elsif @cart_item.save
+        elsif @cart_item.save!
               @cart_items = current_customer.cart_items.all
               redirect_to public_cart_items_path
         else

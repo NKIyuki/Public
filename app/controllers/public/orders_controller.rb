@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
         @order.name = current_customer.last_name + current_customer.first_name
 
     elsif params[:order][:select_address] == "1"
-        ship = Address.find(params[:order][:customer_id])
+        @order = Address.find(params[:order][:customer_id])
         @order.postal_code = postal_code
         @order.address = address
         @order.name = name
@@ -33,14 +33,15 @@ class Public::OrdersController < ApplicationController
    def create
      @order = Order.new(order_params)
      @order.customer_id = current_customer.id
+     @order.order_status=0
      @order.save
 
      current_customer.cart_items.each do |cart_item|
-       @order_details = OrderDetails.new
+       @order_details = OrderDetail.new
        @order_details.item_id = cart_item.item.id
        @order_details.amount = cart_item.amount
-       @order_details.tax_included_price = (cart_item.item.proce*1.08).floor
-       @order_details.order_id = @order_id
+       @order_details.price = (cart_item.item.price*1.08).floor
+       @order_details.order_id = @order.id
        @order_details.save
      end
 
@@ -49,16 +50,16 @@ class Public::OrdersController < ApplicationController
    end
 
    def conpletion
-     @order = Order.all
 
    end
 
   def show
-    @orders = Orders.find(params[:id])
+    @orders = Order.find(params[:id])
   end
 
   def index
     @orders = current_customer.orders
+    @item = Item.all
   end
 
 
