@@ -1,17 +1,33 @@
 <h1>注文履歴</h1>
-<% @orders.each do |order| %>
 <h1>注文日</h1>
-
 <h1>配送先</h1>
-<%= order.address %>
 <h1>注文商品</h1>
-<%= @item.name %>
 <h1>支払い金額</h1>
-<%= order.total_payment %>
 <h1>ステータス</h1>
-
-
 <h1>注文詳細</h1>
-<%= link_to "表示する",public_order_path(order.id) %>
 
+
+<% @orders.each do |order| %>
+
+<div>
+    <%= order.created_at %>
+
+    <%= order.postal_code %>
+    <%= order.address %>
+    <%= order.name%>
+<hr>
+<% order.order_details.each do |order_details| %>
+    <%= order_details.item.name %>
+<% end %>
+<hr>
+    <%= order.total_payment %>
+
+    <%= order.order_status %>
+
+
+
+
+
+    <%= link_to "表示する",public_order_path(order.id) %>
+</div>
 <% end %>
