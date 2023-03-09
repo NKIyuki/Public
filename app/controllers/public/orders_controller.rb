@@ -54,8 +54,8 @@ class Public::OrdersController < ApplicationController
    end
 
   def show
-    @orders = Order.find(params[:id])
-    @order = Order.all
+    @order = Order.find(params[:id])
+
   end
 
   def index

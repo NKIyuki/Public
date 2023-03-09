@@ -7,30 +7,35 @@
     <h1>ステータス</h1><%= @order.order_status %>
 </dev>
 
+
+
+<h1>注文内容</h1>
+<% total_price = 0 %>
+<% @order.order_details.each do |order_details| %>
+<div>
+    <h1>商品</h1>
+
+                 <%= order_details.item.name %>
+　　<h1>単価</h1>
+　　　　　　　<%= order_details.price %>
+
+
+
+    <h1>個数</h1><%= order_details.amount %>
+
+    <h1>小計</h1>
+
+     <%= order_details.price * order_details.amount %>
+     <% total_price += order_details.price * order_details.amount %>
+
+</div>
+<% end %>
 <h1>請求情報</h1>
 <div>
-    <h1>商品合計</h1><%= @order.total_payment %>
+    <h1>商品合計</h1><%= total_price %>
     <h1>配送料</h1><%= @order.shipping_cost %>
     <h1>合計</h1><%= @order.total_payment %>
 
 
 
 </div>
-
-<h1>注文内容</h1>
-<% order.order_details.each do |order_details| %>
-<div>
-    <h1>商品</h1>
-                 <%= order_details.item.name %>
-
-
-    <h1>単価</h1>
-
-
-    <h1>個数</h1><%= order_details.amount %>
-
-    <h1>小計</h1><%= order_details.total_payment %>
-
-
-</div>
-<% end %>
