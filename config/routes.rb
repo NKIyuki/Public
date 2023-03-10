@@ -7,7 +7,7 @@ Rails.application.routes.draw do
  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
  }
-
+  get '/' => 'public/homes#top'
   get '/about' => 'public/homes#about'
   get 'customers/confirm' => 'public/customers#confirm'
   delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
