@@ -9,10 +9,10 @@
             <%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
                 <h5 class="font-weight-bold">支払い方法</h5>
                 <p>
-                <%= f.radio_button :payment_method,:クレジットカード,  checked: "checked" %>
+                <%= f.radio_button :payment_method,:credit_card,  checked: "checked" %>
                 <%= f.label :payment_method, "クレジットカード" %>
                 <br>
-                <%= f.radio_button :payment_method, :銀行振込 %>
+                <%= f.radio_button :payment_method, :transfer %>
                 <%= f.label :payment_method, "銀行振込" %>
                 </p>
                 <h5 class="font-weight-bold">お届け先</h5>
