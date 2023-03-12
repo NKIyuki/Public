@@ -1,9 +1,23 @@
-<h1>注文履歴一覧</h1>
-
-<h1>購入日時</h1>
+<h1>注文履歴詳細</h1>
 
 <h1>購入者</h1>
-
-<h1>注文個数</h1>
+<%= @order.name%>
+<h1>注文日</h1>
+<%= @order.created_at %>
+<h1>配送先</h1>
+  <%= @order.postal_code %>
+  <%= @order.address %>
+  <%= @order.name%>
+<h1>支払い方法</h1>
+<%= @order.payment_method_i18n %>
 
 <h1>注文ステータス</h1>
+
+<%= f.select :status,{'入金待ち':0,'入金確認':1,'制作中':2,'発送準備中':3,'発送済み':4}
+
+
+
+
+
+
+

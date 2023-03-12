@@ -15,14 +15,14 @@
     <%= order.postal_code %>
     <%= order.address %>
     <%= order.name%>
-<hr>
+
 <% order.order_details.each do |order_details| %>
     <%= order_details.item.name %>
 <% end %>
-<hr>
+
     <%= order.total_payment %>
 
-    <%= order.order_status %>
+     <%= order.order_status %>
 
 
 

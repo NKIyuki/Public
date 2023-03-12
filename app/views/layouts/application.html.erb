@@ -10,21 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%=  customer_signed_in? %>
-    <%= admin_signed_in? %>
+     <% if request.path.match(/\/admin(\/)?/) %>
+     <%= render '/layouts/admin_header' %>
+     <% else %>
+     <%= render '/layouts/customer_header',customer: current_customer %>
+     <% end %>
+      <hr>
+      
 
-
-
-
-    <%= link_to'ログアウト',destroy_customer_session_path,method: :delete %>
-
-
-
-
-
-
-    <%= link_to'ログアウト',destroy_customer_session_path,method: :delete %>
-
+  </hr>
     <%= yield %>
   </body>
 </html>

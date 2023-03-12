@@ -1,1 +1,28 @@
-<h1>商品一覧</h1>
+<h1>注文履歴一覧</h1>
+
+<h1>購入日時</h1>
+<h1>購入者</h1>
+<h1>注文個数</h1>
+<h1>注文ステータス</h1>
+
+
+<% @orders.each do |order| %>
+
+<div>
+     <%= link_to admin_order_path(order.id) ,class:"nav-link text-light" do %>
+           <i class="fas fa-home"></i><%= order.created_at %>
+        <% end %>
+
+    <%= order.name%>
+
+<% order.order_details.each do |order_details| %>
+    <%= order_details.item.name %>
+<% end %>
+
+    <%= order.total_payment %>
+
+    <%= order.order_status %>
+
+</div>
+
+<% end %>
