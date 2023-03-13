@@ -5,19 +5,33 @@
 <h1>注文日</h1>
 <%= @order.created_at %>
 <h1>配送先</h1>
-  <%= @order.postal_code %>
-  <%= @order.address %>
-  <%= @order.name%>
+<%= @order.postal_code %>
+<%= @order.address %>
+<%= @order.name%>
 <h1>支払い方法</h1>
 <%= @order.payment_method_i18n %>
 
 <h1>注文ステータス</h1>
+<%= form_with model: @order,url: admin_order_path(@order.id) do |f| %>
+  <%= f.select :status, {'入金待ち':0,'入金確認':1,'制作中':2,'発送準備中':3,'発送済み':4} %>
+  <%= f.submit '更新',class:"btn btn-success" %>
+<% end %>
 
-<%= f.select :status,{'入金待ち':0,'入金確認':1,'制作中':2,'発送準備中':3,'発送済み':4}
+<% @order.order_details.each do |order_detail| %>
+  <h1>商品名</h1>
+  <%= order_detail.item.name %>
+  <h1>単価（税込）</h1>
+  <%= order_detail.price %>
+  <h1>数量</h1>
+  <%= order_detail.amount %>
+  <h1>小計</h1>
+  <%= order_detail.price * order_detail.amount %>
 
-
-
-
-
+  <h1>制作ステータス</h1>
+  <%= form_with model: @order_details, url: admin_order_path(@order.id) do |f| %>
+    <%= f.select :making_status ,{'制作不可':0,'製作待ち':1,'制作中':2,'制作完了':3} %>
+    <%= f.submit '更新',class:"btn btn-success" %>
+  <% end %>
+<% end %>
 
 
