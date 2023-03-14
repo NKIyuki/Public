@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_details
 
-  enum status: {
+  enum order_status: {
     #入金待ち
     waiting_for_payment:0,
     #入金確認

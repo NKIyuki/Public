@@ -14,7 +14,7 @@ class Admin::OrdersController < ApplicationController
 
 private
     def order_params
-     params.require(:order).permit(:status)
+     params.require(:order).permit(:order_status)
 
     end
 end

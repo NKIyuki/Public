@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :homes
   resources :orders
-  resources :orders_details
+  resources :order_details
  end
 
 

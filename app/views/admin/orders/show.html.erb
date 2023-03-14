@@ -13,7 +13,7 @@
 
 <h1>注文ステータス</h1>
 <%= form_with model: @order,url: admin_order_path(@order.id) do |f| %>
-  <%= f.select :status, {'入金待ち':0,'入金確認':1,'制作中':2,'発送準備中':3,'発送済み':4} %>
+  <%= f.select :order_status, {'入金待ち': 'waiting_for_payment','入金確認':'payment_confirmation','制作中':'under_construction','発送準備中':'preparing_for_shipment','発送済み':'sent'} %>
   <%= f.submit '更新',class:"btn btn-success" %>
 <% end %>
 
@@ -28,8 +28,8 @@
   <%= order_detail.price * order_detail.amount %>
 
   <h1>制作ステータス</h1>
-  <%= form_with model: @order_details, url: admin_order_path(@order.id) do |f| %>
-    <%= f.select :making_status ,{'制作不可':0,'製作待ち':1,'制作中':2,'制作完了':3} %>
+  <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id) do |f| %>
+    <%= f.select :making_status ,{'制作不可':'production_not_allowed','製作待ち':'waiting_for_production','制作中':'under_construction','制作完了':'production_completed'} %>
     <%= f.submit '更新',class:"btn btn-success" %>
   <% end %>
 <% end %>
