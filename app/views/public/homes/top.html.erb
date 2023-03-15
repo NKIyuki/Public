@@ -1,1 +1,22 @@
-<hi>topページの完成？</hi>
+<hi>ジャンル検索</hi>
+
+<% @genres.each do |genre| %>
+
+<%= genre.name %>
+
+<% end %>
+
+
+<h1>新着商品</h1>
+  <% @items.each do |item| %>
+  <p>
+  <%= image_tag item.item_image(100,100) %>
+  </p>
+
+  <h1>商品名</h1>
+  <span><%= item.name %></span>
+
+  <span><%= item.price %></span>
+  <% end %>
+
+<%= link_to '全ての商品を見る＞',items_path %>

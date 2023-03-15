@@ -23,7 +23,7 @@ class Public::OrdersController < ApplicationController
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
     else
-            redirect_to new_public_order_path
+            redirect_to new__order_path
     end
 
      @cart_items = current_customer.cart_items.all

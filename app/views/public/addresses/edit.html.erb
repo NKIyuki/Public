@@ -1,5 +1,5 @@
 <hi>配送先編集</hi>
-<%= form_with model: @address,url: public_addresses_path(@address.id) do |f| %>
+<%= form_with model: @address,url: addresses_path(@address.id) do |f| %>
 <hi>郵便番号</hi>
 <%= f.text_field :postal_code %>
 <hi>住所</hi>

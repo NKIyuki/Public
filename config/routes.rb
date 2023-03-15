@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'orders/confirm' => 'public/orders#confirm'
   get 'orders/conpletion' => 'public/orders#conpletion'
 
- namespace :public do
+  scope module: :public do
   resources :homes
   resources :items
   resources :registrations
