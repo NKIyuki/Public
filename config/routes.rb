@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
  }
   get '/admin' =>'admin/homes#top'
-  get '/top' => 'public/homes#top'
+  get '/' => 'public/homes#top'
   get '/about' => 'public/homes#about'
   get 'customers/confirm' => 'public/customers#confirm'
   delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
@@ -18,15 +18,12 @@ Rails.application.routes.draw do
   scope module: :public do
   resources :homes
   resources :items
-  resources :registrations
-  resources :sessions
   resources :customers
   resources :cart_items
   resources :orders
   resources :addresses
  end
  namespace :admin do
-  resources :sessions
   resources :genres
   resources :items
   resources :customers
