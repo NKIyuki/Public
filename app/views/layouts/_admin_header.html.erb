@@ -1,5 +1,10 @@
 <h1>
     <% if admin_signed_in? %>
+     <li>
+       LOGO
+
+     </li>
+
 
      <li>
          <%= link_to about_path ,class:"nav-link text-light" do %>
@@ -26,6 +31,11 @@
       </li>
 
       <% else %>
+      <li>
+        LOGO
+
+      </li>
+
 
       <li>
          <%= link_to admin_items_path ,class:"nav-link text-light" do %>
