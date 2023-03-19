@@ -5,3 +5,6 @@
 <p>これまでの購入履歴が閲覧できなくなります。</p>
 
 <p>退会する場合は「退会する」をクリックして下さい。</p>
+
+<%= link_to "退会する", customers_withdrawal_path, method: :patch, data: { confilm: "本当に退会しますか？" } %>
+<%= link_to "退会しない",'public/homes#top' %>

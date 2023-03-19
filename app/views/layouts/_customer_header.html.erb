@@ -2,7 +2,7 @@
     <% if customer_signed_in? %>
 
     <li>
-      <%= link_to " public/homes#top" ,class:"nav-link text-light" do %>
+      <%= link_to root_path ,class:"nav-link text-light" do %>
        <i class="fas fa-home"></i> LOGO
        <% end %>
     </li>
@@ -36,7 +36,7 @@
       <% else %>
 
       <li>
-        <%= link_to " public/homes#top",class:"nav-link text-light" do %>
+        <%= link_to root_path,class:"nav-link text-light" do %>
           <i class="fas fa-home"></i> LOGO
          <% end %>
       </li>

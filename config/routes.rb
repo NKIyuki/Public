@@ -8,12 +8,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   get '/admin' =>'admin/homes#top'
-  get '/' => 'public/homes#top'
   get '/about' => 'public/homes#about'
   get 'customers/confirm' => 'public/customers#confirm'
   delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
   post 'orders/confirm' => 'public/orders#confirm'
   get 'orders/conpletion' => 'public/orders#conpletion'
+  get '/customers/confirm' => 'public/customers#confirm'
+  patch '/customers/withdrawal' => 'public/customers#withdrawal'
 
   scope module: :public do
   resources :homes
@@ -22,6 +23,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   resources :cart_items
   resources :orders
   resources :addresses
+  root 'homes#top'
  end
  namespace :admin do
   resources :genres

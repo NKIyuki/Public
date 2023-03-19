@@ -15,7 +15,7 @@
 <h1>メールアドレス</h1>
 <%= @customers.email %>
 <h1>会員ステータス</h1>
- <% if customers.is_deleted %>
+ <% if @customers.is_deleted %>
   <span> 有効 </span>
 
   <% else %>
