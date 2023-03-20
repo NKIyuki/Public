@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+  before_action :customer_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+  
   # GET /resource/sign_in
   # def new
   #   super
@@ -26,15 +35,13 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   protected
-  @customer = Customer.find_by(email:params[:customer][:email])
-  retum if!@customer
-  if@customer.valid_password?(params[:customer][:password])
-  end
-  true && !false
-  → true
-  redirect_to new_customer_registration_path
-  true && !true
-  → false
-  redirect_to customer_session_path
-
+   def customer_state
+    @customer = Customer.find_by(email: params[:customer][:email])
+    retum if !@customer
+    if @customer.valid_password?(params[:customer][:password])
+      if @customer.is_deleted == true
+        redirect_to new_customer_registration_path
+      end
+    end
+   end
 end
