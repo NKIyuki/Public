@@ -1,74 +1,80 @@
-<h1>
-    <% if admin_signed_in? %>
+
+<% if admin_signed_in? %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <h1 class="navbar-brand" href="#">LOGO</h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+
       <li>
-        LOGO
-
-      </li>
-
-
-      <li>
-         <%= link_to admin_items_path ,class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i> 商品一覧
+         <%= link_to admin_items_path ,class:"nav-item text-dark" do %>
+            商品一覧
         <% end %>
       </li>
 
      <li>
-         <%= link_to admin_customers_path,class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i> 会員一覧
+         <%= link_to admin_customers_path,class:"nav-item text-dark" do %>
+            会員一覧
         <% end %>
       </li>
 
       <li>
-         <%= link_to admin_path ,class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i> 注文一覧
+         <%= link_to admin_path ,class:"nav-item text-dark" do %>
+            注文一覧
         <% end %>
       </li>
 
      <li>
-         <%= link_to admin_genres_path ,class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i> ジャンル一覧
+         <%= link_to admin_genres_path ,class:"nav-item text-dark" do %>
+           ジャンル一覧
         <% end %>
       </li>
 
      <li>
-         <%= link_to destroy_admin_session_path,method: :delete,class:"nav-link text-dark" do %>
-           <i class="fas fa-home"></i> ログアウト
+         <%= link_to destroy_admin_session_path,method: :delete,class:"nav-item" "text-dark" do %>
+            ログアウト
         <% end %>
       </li>
-      
+    </ul>
+  </div>
+</nav>
       <% else %>
-    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <i class="navbar-brand" href="#">LOGO</i>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+
      <li>
-       LOGO
-
-     </li>
-
-
-     <li>
-         <%= link_to about_path ,class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i> About
+         <%= link_to about_path ,class:"nav-item text-light" do %>
+            About
         <% end %>
       </li>
 
      <li>
-         <%= link_to admin_items_path ,class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i> 商品一覧
+         <%= link_to admin_items_path ,class:"nav-item text-dark" do %>
+            商品一覧
         <% end %>
       </li>
 
       <li>
-         <%= link_to new_customer_registration_path ,class:"nav-link text-light" do %>
-           <i class="fas fa-home"></i> 新規登録
+         <%= link_to new_customer_registration_path ,class:"nav-item text-dark" do %>
+            新規登録
         <% end %>
       </li>
 
       <li>
-         <%= link_to new_customer_session_path ,class:"nav-link text-dark" do %>
-           <i class="fas fa-home"></i> ログイン
+         <%= link_to new_admin_session_path ,class:"nav-item text-dark" do %>
+            ログイン
         <% end %>
       </li>
-
-      
-
-    <% end %>
-</h1>
+    </ul>
+  </div>
+</nav>
+<% end %>
