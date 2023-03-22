@@ -1,22 +1,40 @@
-<hi>ジャンル検索</hi>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-1">
+          ジャンル検索<br>
+            <% @genres.each do |genre| %>
+            <%= genre.name %><br>
+            <% end %>
+      </div>
+      <div class = "col-5 offset-4 d-flex align-items-center">
+        <div>
+        ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+        </div>
+      </div>
+  </div>
+  <div class = "row">
 
-<% @genres.each do |genre| %>
+      <h1 class = "col-4 offset-1">新着商品</h1><br>
+      <div class = "col-7"></div>
+      <% @items.each do |item| %>
+        <div class = "col offset-1">
+        <p>
+        <%= image_tag item.item_image(100,100) %>
+        </p>
+        <span><%= item.name %></span>
+        <span><%= item.price %></span>
+        </div>
+      <% end %>
+  </div>
+  <div class = "col offset-10"><%= link_to '全ての商品を見る＞',items_path %></div>
+</div>
 
-<%= genre.name %>
-
-<% end %>
 
 
-<h1>新着商品</h1>
-  <% @items.each do |item| %>
-  <p>
-  <%= image_tag item.item_image(100,100) %>
-  </p>
 
-  <h1>商品名</h1>
-  <span><%= item.name %></span>
 
-  <span><%= item.price %></span>
-  <% end %>
 
-<%= link_to '全ての商品を見る＞',items_path %>
+
