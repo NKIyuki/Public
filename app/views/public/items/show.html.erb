@@ -1,14 +1,24 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-2">
+        ジャンル検索<br>
+          <% @genres.each do |genre| %>
+          <%= genre.name %><br>
+          <% end %>
+    </div>
+    <div class = "col-3 offset-1">
+      <%= image_tag @item.item_image(300,300) %>
+      <%= @item.name %>
+      <%= @item.introduction %>
+      <%= @item.price%>
+    </div>
+  </div>
+</div>
 
-  <h1>商品詳細</h1>
-    <h1>商品名</h1>
-    <%= image_tag @item.item_image(100,100) %>
-    <p><%= @item.name %></p>
-    <h1>商品説明</h1>
-    <p><%= @item.introduction %></p>
-    <h1>ジャンル</h1>
-    <p><%= @item.genre.name %></p>
-    <h1>税込価格（税抜価格）</h1>
-    <p><%= @item.price%></p>
+
+
+
+
 
     <% if @item.is_active == true %>
     <%= form_with(model: @cart_item,url: cart_items_path, method: :post,local: true)do |f| %>
