@@ -12,28 +12,24 @@
         <% end %>
       </div>
     </div>
-    <div class = "col-3 offset-1">
-      <%= image_tag @item.item_image(300,300) %>
-      <%= @item.name %>
-      <%= @item.introduction %>
+    <div class = "col-5 offset-1">
+      <%= image_tag @item.item_image(300,300) %><br>
+      <%= @item.name %><br>
+      <%= @item.introduction %><br>
       <%= @item.price%>
     </div>
   </div>
 </div>
-
-
-
-
-
-
+<div class = "row">
+  <div class = "col-6 offset-4">
     <% if @item.is_active == true %>
     <%= form_with(model: @cart_item,url: cart_items_path, method: :post,local: true)do |f| %>
     <%= f.label :amount, "個数選択" %>
     <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10] %>
     <%= f.hidden_field :item_id, :value => @item.id %>
 
-   <%= f.submit "カートに入れる" %>
-  <% end %>
-<% end %>
-
-
+    <%= f.submit "カートに入れる" %>
+    <% end %>
+    <% end %>
+  </div>
+</div>
