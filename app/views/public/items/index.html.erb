@@ -1,24 +1,30 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-2">
-          ジャンル検索<br>
-            <% @genres.each do |genre| %>
-            <%= genre.name %><br>
-            <% end %>
+      <div class="card" style="width: 14rem;">
+      <div class="card-header">
+          ジャンル検索
+      </div>
+        <% @genres.each do |genre| %>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= genre.name %></li>
+        </ul>
+        <% end %>
+      </div>
     </div>
-      <div class = "row">
         <div class = "col offset-1 ">
          <h1>商品一覧</h1><br>
+         <div class = "row">
           <% @items.each do |item| %>
-          <div class = "col offset-2 ">
+          <div class = "col-2 offset-1 ">
             <%= link_to item_path(item.id) do %>
             <%= image_tag item.item_image(100,100) %>
-            <% end %>
+            <% end %><br>
           <span><%= item.name %></span>
           <span><%=item.price %></span>
           </div>
            <% end %>
-          </div>
-      </div>
+         </div>
+        </div>
   </div>
 </div>

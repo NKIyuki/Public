@@ -10,11 +10,20 @@
     <%= render "public/shared/error_messages", resource: resource %>
 
 
-    <p class="field">
-    <%= f.label :first_name,"名前" %>
-    （姓）<%= f.text_field :first_name, autofocus: true %>
-    （名）<%= f.text_field :last_name, autofocus: true %>
-     </p>
+    <div class="row">
+      <div class = "col-2">
+        <%= f.label :first_name,"名前" %>（姓）
+      </div>
+      <div class = "col-3">
+        <%= f.text_field :first_name, autofocus: true %>
+      </div>
+      <div class = "col-1">
+        （名）
+      </div>
+      <div class = "col-3">
+        <%= f.text_field :last_name, autofocus: true %>
+      </div>
+    </div>
 
     <p class="field">
     <%= f.label :first_name_kana,"フリガナ" %>

@@ -1,11 +1,17 @@
 <div class = "container">
   <div class = "row">
-    <div class = "col-1">
-          ジャンル検索<br>
-            <% @genres.each do |genre| %>
-            <%= genre.name %><br>
-            <% end %>
+    <div class = "col-2">
+      <div class="card" style="width: 14rem;">
+      <div class="card-header">
+          ジャンル検索
       </div>
+        <% @genres.each do |genre| %>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= genre.name %></li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
       <div class = "col-5 offset-4 d-flex align-items-center">
         <div>
         ようこそ、ながのCAKEへ！<br>
