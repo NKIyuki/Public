@@ -4,11 +4,7 @@
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
-
-  ja:
-    enum:
-      order:
-        status:
+        order_status:
           waiting_for_payment: "入金待ち"
           payment_confirmation: "入金確認"
           under_construction: "制作中"

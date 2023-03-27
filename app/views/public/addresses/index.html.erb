@@ -1,33 +1,59 @@
-
-<h1>配送先登録/一覧</h1>
+<div class = "container">
+    <div class = "row">
+        <div class = "col">
+            <h3>配送先登録/一覧</h3>
+        </div>
+    </div>
 <%= form_with model:Address.new,url: addresses_path do |f| %>
-
-<h1>郵便番号（ハイフンなし）</h1>
-<%= f.text_field :postal_code %>
-
-<h1>住所</h1>
-<%= f.text_field :address %>
-
-<h1>宛名</h1>
-<%= f.text_field :name %>
-
-<%= f.submit '新規登録',class:"btn btn-success" %>
-
+    <div class = "row">
+        <div class = "col">
+            <h4>郵便番号（ハイフンなし）</h4>
+        </div>
+        <div class = "col">
+            <%= f.text_field :postal_code %>
+        </div>
+    </div>
+    <div class = "row">
+        <div class ="col">
+            <h4>住所</h4>
+        </div>
+        <div class ="col">
+            <%= f.text_field :address %>
+        </div>
+    </div>
+    <div class ="row">
+        <div class = "col">
+           <h4>宛名</h4>
+        </div>
+        <div class ="col">
+            <%= f.text_field :name %>
+        </div>
+    </div>
+        <div class = "row"></div>
+        <div class = "col-4 offset-8">
+            <%= f.submit '新規登録',class:"btn btn-success" %>
+        </div>
 <% end %>
+
 
 <% @address.each do |address| %>
-<h1></h1>
-<%= address.postal_code %>
-
-<h1></h1>
-<%= address.address %>
-
-<h1></h1>
-<%= address.name %>
-
-<%= link_to "編集", edit_address_path(address.id) %>
-
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">郵便番号</th>
+      <th scope="col">住所</th>
+      <th scope="col">宛名</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= address.postal_code %></th>
+      <td><%= address.address %></td>
+      <td><%= address.name %></td>
+      <td><%= link_to "編集", edit_address_path(address.id) %></td>
+    </tr>
+  </tbody>
+</table>
 <% end %>
-
-
-
+</div>
