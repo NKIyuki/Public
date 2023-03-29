@@ -1,9 +1,32 @@
-
-  <h1>ジャンル一覧・追加</h1>
-      <%= form_with model:Genre.new,url: admin_genres_path  do |f| %>
-    <hi>ジャンル</hi>
+<div class = "container">
+  <div class = "row">
+    <div class = "col">
+      <h3>ジャンル一覧・追加</h3>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col">
+<%= form_with model:Genre.new,url: admin_genres_path  do |f| %>
+     <h4>ジャンル</h4>
+    </div>
+    <div class = "col">
       <%= f.text_field :name %>
-       <%= f.submit '新規登録',class:"btn btn-success" %>
+    </div>
+    <div class = "col">
+      <%= f.submit '新規登録',class:"btn btn-success" %>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
     <h1>ジャンル</h1>
 
       <% end %>
@@ -14,4 +37,4 @@
 
 <%= link_to "編集",edit_admin_genre_path(genre.id) %>
 
-<% end %> 
+<% end %>

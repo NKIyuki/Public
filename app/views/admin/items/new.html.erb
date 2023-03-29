@@ -1,27 +1,77 @@
-
-  <h1>商品新規登録</h1>
+<div class = "container">
+  <div class = "row">
+    <div class ="col">
+      <h3>商品新規登録</h3>
+    </div>
+  </div>
   <%= form_with model:Item.new,url: admin_items_path  do |f| %>
-  <h1>商品画像</h1>
-  <%= f.file_field :image,placeholder:"プロフィール画像",accept:"image/*" %>
-  <h1>商品名</h1>
-  <%= f.text_field :name %>
+  <div class = "row">
+    <div class = "cpl">
+      <h4>商品画像</h4>
+    </div>
+    <div class = "col">
+      <%= f.file_field :image,placeholder:"プロフィール画像",accept:"image/*" %>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col">
+      <h4>商品名</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col">
+      <h4>商品説明</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :introduction %>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col">
+      <h4>ジャンル</h4>
+    </div>
+  </div>
+  <div class = "col">
+    <%= f.collection_select(:genre_id,@genres,:id,:name,prompt: "選択してください") %>
+  </div>
+  <div class = "row">
+    <div class = "col">
+      <h4>税抜価格</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :price %>円
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col">
+      <h4>販売ステータス</4>
+    </div>
+    <div class ="col">
+        <%= f.label :is_active, "販売中" %>
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label :is_active, "販売停止中" %>
+        <%= f.radio_button :is_active, :false %>
+    </div>
+    <% end %>
+  </div><
 
-  <h1>商品説明</h1>
-  <%= f.text_field :introduction %>
 
-  <h1>ジャンル</h1>
-  <%= f.collection_select(:genre_id,@genres,:id,:name,prompt: "選択してください") %>
 
-  <h1>税抜価格</h1>
-  <%= f.text_field :price %>円
 
-  <h1>販売ステータス</h1>
-  <%= f.label :is_active, "販売中" %>
-  <%= f.radio_button :is_active, :true %>
-  <%= f.label :is_active, "販売停止中" %>
-  <%= f.radio_button :is_active, :false %>
 
-  <%= f.submit '新規登録',class:"btn btn-success" %>
 
-  <% end %>
+
+
+
+
+
+
+
+
+
+
+
 
