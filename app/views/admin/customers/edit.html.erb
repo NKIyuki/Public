@@ -1,25 +1,93 @@
-<h1>会員情報編集</h1>
-<%= form_with model: @custome,url: admin_customer_path(@custome.id) do |f| %>
-<h1>会員ID</h1>
-<%= @custome.id %>
-<h1>氏名</h1>
-<%= f.text_field :first_name %>  <%= f.text_field :last_name %>
-<h1>フリガナ</h1>
-<%= f.text_field :first_name_kana %>  <%= f.text_field :last_name_kana %>
-<h1>郵便番号</h1>
-<%= f.text_field :postal_code %>
-<h1>住所</h1>
-<%= f.text_field :address %>
-<h1>電話番号</h1>
-<%= f.text_field :telephone_number %>
-<h1>メールアドレス</h1>
-<%= f.text_field :email %>
-<h1>会員ステータス</h1>
-  <%= f.label :is_deleted, "有効" %>
-  <%= f.radio_button :is_deleted, :false %>
-  <%= f.label :is_deleted, "退会" %>
-  <%= f.radio_button :is_deleted, :true %>
+<div class = "container">
+  <div class = "row">
+    <div class = "col">
+      <h3>会員情報編集</h3>
+    </div>
+  </div>
+  <%= form_with model: @custome,url: admin_customer_path(@custome.id) do |f| %>
+  <div class = "row">
+    <div class = "col">
+      <h4>会員ID</h4>
+    </div>
+    <div class = "col">
+      <%= @custome.id %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+      <h4>氏名</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :first_name %>  <%= f.text_field :last_name %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+      <h4>フリガナ</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :first_name_kana %>  <%= f.text_field :last_name_kana %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+      <h4>郵便番号</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :postal_code %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+      <h4>住所</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :address %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+      <h4>電話番号</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :telephone_number %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+      <h4>メールアドレス</h4>
+    </div>
+    <div class = "col">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+      <h4>会員ステータス</h4>
+    </div>
+    <div class = "col">
+      <%= f.label :is_deleted, "有効" %>
+      <%= f.radio_button :is_deleted, :false %>
+      <%= f.label :is_deleted, "退会" %>
+      <%= f.radio_button :is_deleted, :true %>
+    </div>
+  </div>
+    <div class = "row">
+    <div class = "col">
+       <%= f.submit '変更を保存する',class:"btn btn-success" %>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-  <%= f.submit '変更を保存する',class:"btn btn-success" %>
 
-  <% end %>
+
+
+
+
+
+
+
+
+
+

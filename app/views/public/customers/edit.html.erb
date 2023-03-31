@@ -4,7 +4,7 @@
       <h1>会員情報編集</h1>
     </div>
   </div>
-     <%= form_with model: @custome,url: admin_customer_path(@custome.id) do |f| %>
+     <%= form_with model: @custome,url: customer_path(@custome.id) do |f| %>
   <div class = "row">
     <div class = "col-1">
       氏名

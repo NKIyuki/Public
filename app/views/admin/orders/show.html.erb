@@ -9,7 +9,9 @@
       <h4>購入者</h4>
     </div>
     <div class = "col">
+      <%= link_to admin_customer_path(@order.customer.id) do %>
       <%= @order.name%>
+      <% end %>
     </div>
   </div>
   <div class = "row">
@@ -63,9 +65,7 @@
     <% @order.order_details.each do |order_detail| %>
     <tr>
       <th scope="row">
-        <%= link_to admin_customer_path do %>
         <%= order_detail.item.name %>
-        <% end %>
       </th>
       <td><%= order_detail.price %></td>
       <td><%= order_detail.amount %></td>
