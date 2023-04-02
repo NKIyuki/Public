@@ -10,6 +10,7 @@
         <li class="list-group-item"><%= genre.name %></li>
         </ul>
         <% end %>
+        <%= paginate @genres %>
       </div>
     </div>
         <div class = "col offset-1 ">
@@ -21,7 +22,7 @@
             <%= image_tag item.item_image(100,100) %>
             <% end %><br>
           <span><%= item.name %></span>
-          <span><%=item.price %></span>
+          <span><%=item.price %>円</span>
           </div>
            <% end %>
          </div>

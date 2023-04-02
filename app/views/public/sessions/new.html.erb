@@ -9,9 +9,9 @@
       <h2>会員の方はこちらからログイン</h2>
     </div>
   </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class = "row">
     <div class = "col-7 offset-3">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="row">
         <div class = "col-3 ">
           <%= f.label :email, "メールアドレス" %>
@@ -41,13 +41,13 @@
         <div class="actions">
           <%= f.submit "ログイン" %>
         </div>
-        <% end %>
     </div>
   </div>
-</div>
+  <% end %>
 <div class = "row">
   <div class = "col-6 offset-2">
     <h2>会員登録がお済みでない方は</h2><br>
     <h6 class = "col offset-3"><%= link_to "こちら",new_customer_registration_path %>からログインください。</h6>
   </div>
+</div>
 </div>

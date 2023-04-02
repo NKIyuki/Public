@@ -10,13 +10,14 @@
         <li class="list-group-item"><%= genre.name %></li>
         </ul>
         <% end %>
+        <%= paginate @genres %>
       </div>
     </div>
     <div class = "col-5 offset-1">
       <%= image_tag @item.item_image(300,300) %><br>
       <%= @item.name %><br>
       <%= @item.introduction %><br>
-      <%= @item.price%>
+      <%= @item.price%>円
     </div>
   </div>
 </div>

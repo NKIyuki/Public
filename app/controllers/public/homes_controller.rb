@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
-    @genres = Genre.all
+    @genres = Genre.page(params[:page])
     @items = Item.order('id DESC').limit(4)
 
   end
