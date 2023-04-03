@@ -10,7 +10,6 @@
         <li class="list-group-item"><%= genre.name %></li>
         </ul>
         <% end %>
-        <%= paginate @genres %>
       </div>
     </div>
         <div class = "col offset-1 ">
@@ -25,6 +24,11 @@
           <span><%=item.price %>円</span>
           </div>
            <% end %>
+          <div class = "row">
+             <div class = col>
+               <p><%= paginate @items %></p>
+             </div>
+          </div>
          </div>
         </div>
   </div>
